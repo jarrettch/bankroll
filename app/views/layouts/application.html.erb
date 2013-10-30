@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bankroll</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<hr />
+User id: <%= session[:user_id] %>
+<%= button_to "Logout", "/authentications/:id", method: :delete %>
+<hr />
+</body>
+</html>
