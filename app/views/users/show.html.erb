@@ -2,7 +2,8 @@ All your logged sessions will go here!
 
 <h1>Display Session Details</h1>
 <br>
-<%= @user.visits.each do |user| %>
-  <%= user.location %>
-  <%= user.stakes %>
+<ul><%= @user.visits.each do |user| %>
+  <li><%= user.location %>
+  <li><%= user.stakes %>
 <% end %>
+</ul>

@@ -9,7 +9,7 @@ class Visit
   field :profit_or_loss, type: Float
   field :notes, type: String
 
-  belongs_to :user
+  embedded_in :user
   # class_name:"User", inverse_of: :user
 
 end

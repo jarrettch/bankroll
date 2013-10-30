@@ -1,7 +1,11 @@
 Bankroll::Application.routes.draw do
    root 'welcome#index'
 
-  resources :users, :visits, :authentications
+  resources :users do
+    resources :visits
+  end
+  
+  resources :authentications
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

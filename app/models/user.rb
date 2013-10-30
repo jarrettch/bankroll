@@ -4,7 +4,9 @@ class User
   include Mongoid::Document
 
   attr_accessor :password, :password_confirmation
-  has_many :visits 
+  embeds_many :visits
+  has_many :scores 
+  accepts_nested_attributes_for :visits
 
   field :email, type: String
   field :salt, type: String
