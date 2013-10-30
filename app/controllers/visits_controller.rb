@@ -8,10 +8,10 @@ class VisitsController < ApplicationController
     @visit = Visit.find(params[:id])
   end
 
- # def new
- #   @user = User.find(params[:user_id])
- #   @visit = Visit.new
- # end
+  def new
+    @user = User.find(params[:user_id])
+    @visit = Visit.new
+  end
 
   def create
     @user = User.find(params[:user_id])

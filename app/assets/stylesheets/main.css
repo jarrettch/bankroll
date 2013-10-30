@@ -1,0 +1,31 @@
+.HolyGrail,
+.HolyGrail-body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Helvetica';
+}
+
+.HolyGrail {
+  min-height: 100vh;
+}
+
+.HolyGrail-nav {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .HolyGrail-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .HolyGrail-content {
+    background: rgba(47, 119, 44, 0.35);
+    flex: 1;
+    padding: 25px;
+  }
+  .HolyGrail-nav, .HolyGrail-ads {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+    padding: 10px;
+  }
+}

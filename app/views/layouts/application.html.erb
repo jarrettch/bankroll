@@ -6,13 +6,17 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
-<hr />
+<body class="HolyGrail">
+<div class="HolyGrail-body">
+  <main class="HolyGrail-content">
+  <%= yield %>
+  </main>
+  <nav class="HolyGrail-nav">Navigation</nav>
+  <aside class="HolyGrail-ads">Aside</aside>
+</div>
+<footer>
 User id: <%= session[:user_id] %>
 <%= button_to "Logout", "/authentications/:id", method: :delete %>
-<hr />
+</footer>
 </body>
 </html>
