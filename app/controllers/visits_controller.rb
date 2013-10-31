@@ -1,4 +1,6 @@
 class VisitsController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @visits = Visit.all
     @visit = Visit.new
@@ -15,8 +17,8 @@ class VisitsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @visit = @user.visits.create(params.permit(:date_played, :location, :game_type, :stakes, :hours_played, :profit_or_loss, :notes))
-    redirect_to '/'
+    @visit = @user.visits.create(params[:visit].permit(:date_played, :location, :visit_type, :stakes, :hours_played, :profit_or_loss, :notes))
+    redirect_to :back
   end
 
   def update
@@ -24,7 +26,7 @@ class VisitsController < ApplicationController
 
   def destroy
     Visit.find(params[:id]).destroy
-    redirect_to visits_url
+    redirect_to '/'
   end
 
 end

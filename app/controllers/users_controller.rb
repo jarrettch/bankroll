@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user  
   respond_to :html, :json
 
   def new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.new
+    @user = @current_user
     @users = User.all
     respond_with(@users) do |format|
       format.json {render :json => @users.as_json }
@@ -22,7 +23,5 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
-
 
 end

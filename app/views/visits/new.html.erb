@@ -1,6 +1,7 @@
 <h1>New Session Form</h1>
 
-<%= form_for user_visits_path(@user), url: user_visits_path, method: 'post' do |visit|%>
+<%# form_for user_visits_path(@user, @visit._id), url: user_visits_path, method: 'post' do |visit|%>
+<%= form_for [@user, @visit], url: user_visits_path, method: 'post' do |visit|%>
   <%= visit.label :date_played, "Date Played" %>
   <%= visit.text_field :date_played %>
   <br />
