@@ -6,7 +6,7 @@ class User
   attr_accessor :password, :password_confirmation
   embeds_many :visits
   has_many :scores 
-  accepts_nested_attributes_for :visits
+  accepts_nested_attributes_for :visits, :allow_destroy => true
 
   field :email, type: String
   field :salt, type: String
