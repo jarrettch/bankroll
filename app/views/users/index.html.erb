@@ -1,6 +1,9 @@
 User index page :(
 <br>
-<% #@users.visits.each do |user| %>
-  <%# user.location %>
-  <%# user.stakes %>
-<% #end %>
+<% @user.visits.each do |user| %>
+<p><br />
+  <%= user.location %>
+  <br />
+  <%= user.stakes %>
+</p>
+<% end %>

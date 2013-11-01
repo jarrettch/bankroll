@@ -7,15 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="HolyGrail">
+  <h1>Bankroll.io</h1>
 <div class="HolyGrail-body">
   <main class="HolyGrail-content">
   <%= yield %>
   </main>
   <nav class="HolyGrail-nav">Navigation
     <br />
-    <a href="/">Home</a>
+    <%= link_to root_url do %>Home<% end %>
     <br />
-    <a href="/authentications/new/">Sign in</a>
+    <%= link_to authentications_url do %>Sign in<% end %>
+    <br />
+    <%= link_to new_authentication_path do %>Sign up!<% end %>
+    <br />
+    <%= link_to "My Page", @user %>
+    <br />
+    <%= link_to "New Visit", new_user_visit_path(@user, @visit) %>
     <br />
   </nav>
   <aside class="HolyGrail-ads">Aside</aside>

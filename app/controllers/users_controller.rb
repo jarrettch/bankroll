@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user  
+  before_action :authenticate_user, except: [:new, :create]
   respond_to :html, :json
 
   def new
@@ -9,15 +9,12 @@ class UsersController < ApplicationController
   def create
     User.create(params[:user]
       .permit(:email, :password, :password_confirmation, :visit))
-    redirect_to action: 'show'
+    redirect_to users_url
   end
 
   def index
     @user = @current_user
     @users = User.all
-    respond_with(@users) do |format|
-      format.json {render :json => @users.as_json }
-    end
   end
 
   def show
