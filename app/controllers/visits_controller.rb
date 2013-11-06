@@ -22,10 +22,13 @@ class VisitsController < ApplicationController
   end
 
   def update
+    @visit = @user.visits.find(params[:id])
+    if @user.update_attributes(params)
   end
 
   def destroy
-    Visit.find(params[:id]).destroy
+    @user = User.find(params[:user_id])
+    @visit = @user.visits.find(params[:id]).destroy
     redirect_to '/'
   end
 

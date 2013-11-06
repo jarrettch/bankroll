@@ -6,4 +6,6 @@ User index page :(
   <br />
   <%= user.stakes %>
 </p>
+<p>
+  <%= button_to "X", { action: "destroy", id: @user.visits.id}, {method: :delete, data:{confirm:"Are you sure?"}, :class => "mybutton"}  %>
 <% end %>

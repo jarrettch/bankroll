@@ -6,5 +6,8 @@ All your logged sessions will go here!
   <li>Location: <%= user.location %>
   <li>Stakes: <%= user.stakes %>
     <p>
+      <%= button_to "X", { action: "destroy"}, {method: :delete, data:{confirm:"Are you sure?"}, :class => "mybutton"}  %>
+    </p>
+    <p>
 <% end %>
 </ul>
