@@ -1,0 +1,36 @@
+<h1>New Session Form</h1>
+
+<%= form_for [@user, @visit], url: user_visit_path, method: 'patch' do |visit|%>
+  <%= visit.label :date_played, "Date Played" %>
+  <%= visit.text_field :date_played %>
+  <br />
+
+  <%= visit.label :location, "Location" %>
+  <%= visit.text_field :location %>
+  <br />
+
+  <%= visit.label :visit_type, "Game Type" %>
+  <%= visit.text_field :visit_type %>
+  <br />
+
+  <%= visit.label :stakes, "Stakes" %>
+  <%= visit.text_field :stakes %>
+  <br />
+
+  <%= visit.label :hours_played, "Hours Played" %>
+  <%= visit.text_field :hours_played %>
+  <br />
+
+
+  <%= visit.label :profit_or_loss, "Profit or Loss" %>
+  <%= visit.text_field :profit_or_loss %>
+  <br />
+
+
+  <%= visit.label :notes, "Notes" %>
+  <%= visit.text_field :notes %>
+  <br />
+
+  <%= visit.submit %>
+
+<% end %>

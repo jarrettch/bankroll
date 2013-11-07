@@ -7,7 +7,8 @@ class VisitsController < ApplicationController
   end
 
   def show
-    @visit = Visit.find(params[:id])
+    @user = User.find(params[:user_id])
+    @visit = @user.visits.find(params[:id])
   end
 
   def new
@@ -21,15 +22,26 @@ class VisitsController < ApplicationController
     redirect_to :back
   end
 
-  def update
+  def edit
+    @user = User.find(params[:user_id])
     @visit = @user.visits.find(params[:id])
-    if @user.update_attributes(params)
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @visit = @user.visits.find(params[:id])
+    if @visit.update_attributes(params[:visit].permit(:date_played, :location, :visit_type, :stakes, :hours_played, :profit_or_loss, :notes))
+      redirect_to @user
+    else
+      @visit = @user.visits.find(params[:id])
+      render :action => 'edit'
+    end
   end
 
   def destroy
     @user = User.find(params[:user_id])
     @visit = @user.visits.find(params[:id]).destroy
-    redirect_to '/'
+    redirect_to :back
   end
 
 end

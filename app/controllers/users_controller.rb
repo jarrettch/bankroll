@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @visit = @user.visits.destroy(params[:id])
+    @user = User.find(params[:id])
+    @visit = @user.visits.find(params[:id]).destroy
     redirect_to '/'
   end
 end

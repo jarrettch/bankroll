@@ -1,16 +1,17 @@
-All your logged sessions will go here!
-
 <h1>Display Session Details</h1>
 <br>
-<ul><% @user.visits.each do |visit| %>
+<ul><% @visit do |visit| %>
   <li>Date: <%= visit.date_played %>
   <li>Location: <%= visit.location %>
   <li>Stakes: <%= visit.stakes %>
   <li>Hours Played: <%= visit.hours_played %>
   <li>Profit?: <%= visit.profit_or_loss %>
+  <li>Notes: <%= visit.notes %>
+    <% end %>
     <p>
       <%= button_to "X",user_visit_path(@user,visit), {method: :delete, data:{confirm:"Are you sure?"}, :class => "mybutton"}  %>
     </p>
     <p>
 <% end %>
 </ul>
+<% end %>
