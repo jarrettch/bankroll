@@ -11,6 +11,7 @@ All your logged sessions will go here!
     <p>
       <%= button_to "X",user_visit_path(@user,visit), {method: :delete, data:{confirm:"Are you sure?"}, :class => "mybutton"}  %>
     </p>
+    <p><%= link_to "Update", edit_user_visit_path(@user,@visit) %></p>
     <p>
 <% end %>
 </ul>
